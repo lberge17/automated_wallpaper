@@ -11,8 +11,19 @@ def change_wallpaper(image):
     subprocess.Popen(command%image, shell=True)
     subprocess.call(["killall dock"], shell=True)
 
-def main():
+def main(n):
     # automate change_wallpaper function
+    # Note: be sure to edit path based on where your username and where files are stored
+    change_wallpaper('/Users/laura/desktop/auto-wallpaper/images/'+str(n)+'.jpg')
+
+n = 1
+seconds = 20
 
 while True:
-    main()
+    main(n)
+    if n < 6:
+        n += 1
+    else:
+        n = 1
+
+    time.sleep(seconds)
